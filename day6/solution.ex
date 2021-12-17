@@ -16,7 +16,6 @@ defmodule Lanternfish do
       end)
     end)
     |> Enum.count()
-    |> IO.inspect()
   end
 
   def part2 do
@@ -25,7 +24,6 @@ defmodule Lanternfish do
     fishes = Map.merge(initial_fishes, fish_freqs)
 
     Enum.reduce(1..@days, fishes, fn _, acc ->
-      IO.inspect(acc)
       existing_news = Map.get(acc, 0)
       timer_six = Map.get(acc, 7) + existing_news
 
@@ -69,5 +67,6 @@ defmodule Benchmark do
 end
 
 IO.puts("Part 1 & 2:")
-time = Benchmark.measure(fn -> Lanternfish.part2() |> IO.inspect() end)
-IO.puts("Time: #{time}s")
+Lanternfish.part1() |> IO.inspect()
+IO.puts("Part 2:")
+Lanternfish.part2() |> IO.inspect()

@@ -36,8 +36,6 @@ defmodule GiantSquid do
         nums = if idx < 5, do: Enum.take(numbers, 5), else: Enum.take(numbers, idx + 1)
         boards = check_all_winning_boards(acc_boards, nums)
 
-        IO.inspect(boards)
-
         if boards == [] do
           {:cont, {nums, last_boards, acc_boards}}
         else
@@ -47,7 +45,6 @@ defmodule GiantSquid do
             end)
 
           if new_boards == [] do
-            IO.inspect(nums)
             {:halt, {nums, boards, new_boards}}
           else
             {:cont, {nums, boards, new_boards}}
@@ -56,8 +53,6 @@ defmodule GiantSquid do
       end)
 
     last_num = Enum.at(nums, -1)
-
-    IO.inspect(last_num)
 
     board_nums =
       List.last(last_board)
@@ -69,8 +64,6 @@ defmodule GiantSquid do
         List.delete(acc, n)
       end)
       |> Enum.sum()
-
-    IO.inspect(remaining_nums)
 
     last_num * remaining_nums
   end

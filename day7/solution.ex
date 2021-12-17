@@ -17,7 +17,6 @@ defmodule TheThreacheryOfWhales do
           base_num = abs(n - idx)
           div(abs(base_num * base_num + base_num), 2)
         end)
-        |> IO.inspect()
         |> Enum.sum()
 
       case total < acc do
